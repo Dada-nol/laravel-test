@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Property extends Model
 {
@@ -21,4 +22,14 @@ class Property extends Model
         'description',
         'price_per_night'
     ];
+
+    /**
+     * The users that belong to the property.
+     */
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'bookings')
+            ->withPivot('start_date', 'end_date')
+            ->withTimestamps();
+    }
 }
