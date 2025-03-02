@@ -12,6 +12,10 @@
                     {{ __("You're logged in!") }}
                 </div>
             </div>
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <a class="p-6 text-gray-900" href="/">{{ __("Retourner à l'accueil") }}</a>
+            </div>
+
         </div>
     </div>
 </x-app-layout>
