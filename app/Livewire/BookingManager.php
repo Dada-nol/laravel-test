@@ -27,6 +27,11 @@ class BookingManager extends Component
             return;
         }
 
+        $this->validate([
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after:start_date',
+        ]);
+
         Booking::create([
             'user_id' => $user->id,
             'property_id' => $this->property->id,
@@ -35,6 +40,13 @@ class BookingManager extends Component
         ]);
 
         session()->flash('success', 'Réservation effectuée avec succès !');
+    }
+
+    public function redirectToHome()
+    {
+        if (session('success')) {
+            return redirect()->route('home');
+        }
     }
 
     public function render()

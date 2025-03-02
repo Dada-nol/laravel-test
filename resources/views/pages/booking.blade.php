@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-primary leading-tight">
-      {{ __('Réservation pour').$property->name }}
+      {{ __('Réservation pour') . " " .$property->name }}
     </h2>
   </x-slot>
 
