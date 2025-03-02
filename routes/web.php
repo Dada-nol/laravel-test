@@ -10,7 +10,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 
 Route::get('/properties', [PropertyController::class, 'properties'])->name('property');
 
-Route::get('/property/{id}', [BookingController::class, 'show'])->middleware(['auth', 'verified'])->name('property.show');
+Route::get('/property/{id}', [BookingController::class, 'show'])->middleware(['auth', /* 'verified' */])->name('property.show');
 
 Route::get('/dashboard', function () {
     return view('pages.dashboard');
