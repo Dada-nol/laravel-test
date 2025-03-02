@@ -40,13 +40,8 @@ class BookingManager extends Component
         ]);
 
         session()->flash('success', 'Réservation effectuée avec succès !');
-    }
 
-    public function redirectToHome()
-    {
-        if (session('success')) {
-            return redirect()->route('home');
-        }
+        return redirect()->route('home');
     }
 
     public function render()

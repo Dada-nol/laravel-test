@@ -6,7 +6,7 @@
     <label for="end_date">Date de fin :</label>
     <input type="date" id="end_date" wire:model="end_date">
 
-    <button type="submit" wire:click="redirectToHome">{{ __('Réserver maintenant') }}</button>
+    <button type="submit" class="bg-primary text-white p-2 ml-3">{{ __('Réserver maintenant') }}</button>
 
     </br>
     @error('start_date') <span class="text-red-500">{{ $message }}</span> @enderror
