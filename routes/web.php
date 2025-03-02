@@ -1,16 +1,19 @@
 <?php
 
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 
-Route::get('/booking', [BookingController::class, 'booking'])->name('booking');
+Route::get('/properties', [PropertyController::class, 'properties'])->name('property');
+
+Route::get('/property/{id}', [BookingController::class, 'show'])->name('property.show');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('pages.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

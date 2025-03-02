@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-primary leading-tight">
-      {{ __('Réservation')}}
+      {{ __('Propriétés')}}
     </h2>
   </x-slot>
 
@@ -12,7 +12,10 @@
         <p class="text-lg font-semibold text-primary">Name : {{$property->name}}</p>
         <p class="text-gray-400 font-semibold">Description: {{ $property->description}}</p>
         <p class="text-gray-800 font-bold">Price : {{ $property->price_per_night}}</p>
-        <x-secondary-button>{{ __('Réserver') }}</x-secondary-button>
+
+        <a href="{{ route('property.show', $property->id) }}">
+          <x-secondary-button>{{ __('Réserver') }}</x-secondary-button>
+        </a>
       </x-card>
     </li>
     @endforeach
